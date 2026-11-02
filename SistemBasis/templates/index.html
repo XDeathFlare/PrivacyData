@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Database Data Mahasiswa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">DM</div>
+            <div>
+                <h2>Database Data Mahasiswa</h2>
+                <p>Proyek Sistem Basis Data</p>
+            </div>
+        </div>
+
+        <div class="connection">
+            <span class="status-dot"></span>
+            Database Aktif
+        </div>
+    </header>
+
+    <main class="container">
+
+<section class="welcome">
+    <p class="eyebrow">DATABASE DATA MAHASISWA</p>
+    <h1>Ringkasan Data</h1>
+
+    <p class="description">
+        Halaman Ini Menampilkan Jumlah Data Mahasiswa,
+        Dosen, Mata Kuliah, Dan KRS Yang Tersimpan Di Database.
+    </p>
+
+<a href="/mahasiswa" class="button">
+    Data Mahasiswa
+</a>
+
+<a href="/dosen" class="button">
+    Data Dosen
+</a>
+
+<a href="/matakuliah" class="button">
+    Data Mata Kuliah
+</a>
+
+<a href="/krs" class="button">
+    Data KRS
+</a>
+
+<br><br>
+
+        <section class="stats">
+
+            <div class="stat-card">
+                <div class="stat-label">Data Mahasiswa</div>
+                <div class="stat-number">{{ total_mahasiswa }}</div>
+                <div class="stat-note">Jumlah Mahasiswa Terdaftar</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Data Dosen</div>
+                <div class="stat-number">{{ total_dosen }}</div>
+                <div class="stat-note">Jumlah Dosen</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Data Mata Kuliah</div>
+                <div class="stat-number">{{ total_mata_kuliah }}</div>
+                <div class="stat-note">Jumlah Mata Kuliah</div>
+            </div>
+
+            <div class="stat-card">
+                <div class="stat-label">Data KRS</div>
+                <div class="stat-number">{{ total_krs }}</div>
+                <div class="stat-note">Jumlah Data Pengambilan Mata Kuliah</div>
+            </div>
+
+        </section>
+
+        <section class="info-panel">
+            <div class="info-icon">✓</div>
+            <div>
+                <h3>Database Berhasil Terhubung</h3>
+                <p>
+                    Data yang ditampilkan berasal dari Database
+                    MySQL dengan nama <strong>db_mahasiswa</strong>.
+                </p>
+            </div>
+        </section>
+
+        <footer>
+            <p>Database Data Mahasiswa</p>
+            <p>Tugas Mata Kuliah Basis Data</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

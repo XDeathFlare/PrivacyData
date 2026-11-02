@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Mata Kuliah</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">DM</div>
+            <div>
+                <h2>Database Data Mahasiswa</h2>
+                <p>Daftar Mata Kuliah</p>
+            </div>
+        </div>
+
+        <div class="connection">
+            <span class="status-dot"></span>
+            Database Aktif
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <p class="eyebrow">DATABASE DATA MAHASISWA</p>
+            <h1>Daftar Mata Kuliah</h1>
+
+            <p class="description">
+                Berikut Adalah Data Mata Kuliah Yang Tersimpan Di Database.
+            </p>
+
+            <br>
+            <a href="/" class="button">Kembali ke Dashboard</a>
+        </section>
+
+        <section class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        
+                        <th>Kode MK</th>
+                        <th>Nama Mata Kuliah</th>
+                        <th>Program Studi</th>
+                        <th>SKS</th>
+                        <th>ID Dosen</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for mk in data_mata_kuliah %}
+                    <tr>
+                        
+                        <td>{{ mk.kode_mk }}</td>
+                        <td>{{ mk.nama_mata_kuliah }}</td>
+                        <td>{{ mk.program_studi }}</td>
+                        <td>{{ mk.sks }}</td>
+                        <td>{{ mk.id_dosen }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="6">Belum ada data mata kuliah.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            <p>Database Data Mahasiswa</p>
+            <p>Tugas Mata Kuliah Basis Data</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

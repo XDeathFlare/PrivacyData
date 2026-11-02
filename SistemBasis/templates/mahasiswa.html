@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Mahasiswa</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">DM</div>
+            <div>
+                <h2>Database Data Mahasiswa</h2>
+                <p>Daftar Mahasiswa</p>
+            </div>
+        </div>
+
+        <div class="connection">
+            <span class="status-dot"></span>
+            Database Aktif
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <p class="eyebrow">DATABASE DATA MAHASISWA</p>
+            <h1>Data Mahasiswa</h1>
+            <p class="description">
+                Berikut Adalah Data Mahasiswa Yang Tersimpan Di Database.
+            </p>
+            <br>
+            <a href="/" class="button">Kembali Ke Dashboard</a>
+        </section>
+
+        <section class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        
+                        <th>NIM</th>
+                        <th>Nama</th>
+                        <th>Program Studi</th>
+                        <th>No. Absen</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for mhs in data_mahasiswa %}
+                    <tr>
+                        
+                        <td>{{ mhs.nim }}</td>
+                        <td>{{ mhs.nama }}</td>
+                        <td>{{ mhs.program_studi }}</td>
+                        <td>{{ mhs.no_absen }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="5">Belum ada data mahasiswa.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            <p>Database Data Mahasiswa</p>
+            <p>Tugas Mata Kuliah Basis Data</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

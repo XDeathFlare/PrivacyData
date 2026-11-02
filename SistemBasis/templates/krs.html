@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data KRS</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">DM</div>
+            <div>
+                <h2>Database Data Mahasiswa</h2>
+                <p>Data KRS</p>
+            </div>
+        </div>
+
+        <div class="connection">
+            <span class="status-dot"></span>
+            Database Aktif
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <p class="eyebrow">DATABASE DATA MAHASISWA</p>
+            <h1>Daftar KRS Mahasiswa</h1>
+
+            <p class="description">
+                Berikut Adalah Data KRS Yang Tersimpan Di Database
+            </p>
+
+            <br>
+            <a href="/" class="button">Kembali ke Dashboard</a>
+        </section>
+
+        <section class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        
+                        <th>ID KRS</th>
+                        <th>NIM</th>
+                        <th>Nama Mahasiswa</th>
+                        <th>Kode MK</th>
+                        <th>Nama Mata Kuliah</th>
+                        <th>Semester</th>
+                        <th>Tahun Ajaran</th>
+                    </tr>
+                </thead>
+
+                <tbody>
+                    {% for krs in data_krs %}
+                    <tr>
+                        
+                        <td>{{ krs.id_krs }}</td>
+                        <td>{{ krs.nim }}</td>
+                        <td>{{ krs.nama_mahasiswa or '-' }}</td>
+                        <td>{{ krs.kode_mk }}</td>
+                        <td>{{ krs.nama_mata_kuliah or '-' }}</td>
+                        <td>{{ krs.semester }}</td>
+                        <td>{{ krs.tahun_ajaran }}</td>
+                    </tr>
+                    {% else %}
+                    <tr>
+                        <td colspan="8">Belum ada data KRS.</td>
+                    </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </section>
+
+        <footer>
+            <p>Database Data Mahasiswa</p>
+            <p>Tugas Mata Kuliah Basis Data</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>

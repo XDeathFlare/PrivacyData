@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Data Dosen</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+
+    <header class="topbar">
+        <div class="brand">
+            <div class="brand-icon">DM</div>
+            <div>
+                <h2>Database Data Mahasiswa</h2>
+                <p>Daftar Dosen</p>
+            </div>
+        </div>
+
+        <div class="connection">
+            <span class="status-dot"></span>
+            Database Aktif
+        </div>
+    </header>
+
+    <main class="container">
+
+        <section class="welcome">
+            <p class="eyebrow">DATABASE DATA MAHASISWA</p>
+            <h1>Data Dosen</h1>
+
+            <p class="description">
+                Berikut Adalah Data Dosen Yang Tersimpan Di Database.
+            </p>
+
+            <br>
+            <a href="/" class="button">Kembali ke Dashboard</a>
+        </section>
+
+        <section class="table-wrap">
+            <table>
+                
+            <thead>
+                <tr>
+                
+                <th>ID Dosen</th>
+                <th>Nama Dosen</th>
+                <th>Program Studi</th>
+                <th>Email</th>
+                </tr>
+            </thead>
+
+                <tbody>
+                    {% for dosen in data_dosen %}
+                    <tr>
+                    
+                    <td>{{ dosen.id_dosen }}</td>
+                    <td>{{ dosen.nama_dosen }}</td>
+                    <td>{{ dosen.program_studi }}</td>
+                    <td>{{ dosen.email }}</td>
+                </tr>
+                    {% else %}
+                <tr>
+                <td colspan="5">Belum ada data dosen.</td>
+                </tr>
+                {% endfor %}
+                </tbody>
+
+            </table>
+        </section>
+
+        <footer>
+            <p>Database Data Mahasiswa</p>
+            <p>Tugas Mata Kuliah Sistem Basis Data</p>
+        </footer>
+
+    </main>
+
+</body>
+</html>
